@@ -202,3 +202,76 @@
 2024-06-14T15:12:46.071Z info: /metrics
 2024-06-14T15:12:56.401Z info: /metrics
 2024-06-14T15:12:56.508Z info: /favicon.ico2025-03-28T14:17:32.609Z info: Connected to DB and listening to port 8000
+2025-03-29T11:19:33.074Z error: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+2025-03-29T11:21:24.313Z info: Connected to DB and listening to port 3000
+2025-03-29T11:25:16.362Z info: /api/user/signup
+2025-03-29T11:25:16.485Z info: User Signed Up!!
+2025-03-29T11:25:16.517Z info: /api/user/signup
+2025-03-29T11:25:16.520Z info: /api/user/login
+2025-03-29T11:25:16.585Z info: User Logged In!!!
+2025-03-29T11:25:16.590Z info: /api/user/login
+2025-03-29T11:25:16.659Z info: /metrics
+2025-03-29T12:01:00.759Z info: /api/user/signup
+2025-03-29T12:01:00.808Z info: /api/user/signup
+2025-03-29T12:01:00.812Z info: /api/user/login
+2025-03-29T12:01:00.906Z info: User Logged In!!!
+2025-03-29T12:01:00.913Z info: /api/user/login
+2025-03-29T12:01:00.981Z info: /metrics
+2025-03-29T13:19:53.121Z info: /api/user/login
+2025-03-29T13:19:53.239Z info: User Logged In!!!
+2025-03-29T13:19:53.266Z info: /api/user/login
+2025-03-29T13:19:53.333Z info: /api/user/signup
+2025-03-29T13:19:53.338Z info: /api/user/signup
+2025-03-29T13:19:53.341Z info: /metrics
+2025-03-29T13:45:20.264Z info: /api/user/signup
+2025-03-29T13:45:20.315Z info: /api/user/login
+2025-03-29T13:45:20.408Z info: User Logged In!!!
+2025-03-29T13:45:20.412Z info: /metrics
+2025-03-29T13:47:01.150Z info: Connected to DB and listening to port 4000
+2025-03-29T13:47:16.742Z info: /api/user/signup
+2025-03-29T13:47:16.777Z info: /api/user/login
+2025-03-29T13:47:16.847Z info: User Logged In!!!
+2025-03-29T13:47:16.851Z info: /metrics
+2025-03-29T13:51:53.822Z info: /api/user/login
+2025-03-29T13:51:53.891Z info: User Logged In!!!
+2025-03-29T13:51:53.911Z info: /api/user/login
+2025-03-29T13:51:53.978Z info: /api/user/signup
+2025-03-29T13:51:53.983Z info: /api/user/signup
+2025-03-29T13:51:53.985Z info: /metrics
+2025-03-29T13:54:17.972Z info: /api/user/signup
+2025-03-29T13:54:17.994Z info: /api/user/login
+2025-03-29T13:54:18.059Z info: User Logged In!!!
+2025-03-29T13:54:18.063Z info: /api/user/login
+2025-03-29T13:54:18.130Z info: /api/user/signup
+2025-03-29T13:54:18.132Z info: /metrics
+2025-03-29T13:56:09.052Z info: /api/user/signup
+2025-03-29T13:56:09.077Z info: /api/user/login
+2025-03-29T13:56:09.142Z info: User Logged In!!!
+2025-03-29T13:56:09.147Z info: /api/user/login
+2025-03-29T13:56:09.215Z info: /api/user/signup
+2025-03-29T13:56:09.217Z info: /metrics
+2025-03-29T13:58:12.574Z info: /api/user/signup
+2025-03-29T13:58:12.596Z info: /api/user/login
+2025-03-29T13:58:12.661Z info: User Logged In!!!
+2025-03-29T13:58:12.664Z info: /api/user/login
+2025-03-29T13:58:12.733Z info: /api/user/signup
+2025-03-29T13:58:12.735Z info: /metrics
+2025-03-29T13:58:32.861Z info: Connected to DB and listening to port 4000
+2025-03-29T13:58:47.042Z info: /api/user/signup
+2025-03-29T13:58:47.069Z info: /api/user/login
+2025-03-29T13:58:47.139Z info: User Logged In!!!
+2025-03-29T13:58:47.141Z info: Token Created!!!
+2025-03-29T13:58:47.141Z info: customer
+2025-03-29T13:58:47.143Z info: /api/user/login
+2025-03-29T13:58:47.211Z info: /api/user/signup
+2025-03-29T13:58:47.213Z info: /metrics
+2025-03-29T14:00:32.295Z info: /api/user/signup
+2025-03-29T14:00:32.383Z info: User Signed Up!!
+2025-03-29T14:00:32.384Z info: Token Created!!
+2025-03-29T14:00:32.384Z info: customer
+2025-03-29T14:00:32.387Z info: /api/user/login
+2025-03-29T14:00:32.451Z info: User Logged In!!!
+2025-03-29T14:00:32.452Z info: Token Created!!!
+2025-03-29T14:00:32.452Z info: customer
+2025-03-29T14:00:32.455Z info: /metrics
+2025-03-29T18:57:18.410Z info: Connected to DB and listening to port 4000
