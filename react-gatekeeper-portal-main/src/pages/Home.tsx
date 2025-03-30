@@ -30,9 +30,9 @@ const Home: React.FC = () => {
 
             {/* Auth & Cart */}
             <div className="auth-container flex items-center gap-2">
-              <Link to="/login" className="text-bala-button hover:underline w-16">Sign In</Link>
+              <Link to="/login" className="text-bala-button hover:underline w-16">Sign in</Link>
               <span className="text-gray-400">/</span>
-              <Link to="/signup" className="text-bala-button hover:underline w-16">Sign Up</Link>
+              <Link to="/signup" className="text-bala-button hover:underline w-16">Sign up</Link>
               <div className="cart ml-4">
                 <Link to="/cart" className="flex items-center">
                   <ShoppingCart className="text-bala-button" />

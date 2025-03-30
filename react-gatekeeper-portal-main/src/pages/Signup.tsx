@@ -1,7 +1,7 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
+import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -12,15 +12,27 @@ const Signup: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Signup attempt with:", { email, password });
-    // Here you would typically handle user registration
-  };
+    setError(null);
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+    try {
+      const response = await axios.post("https://hack-n-uthon-6-0.vercel.app/api/user/signup", {
+        Email: email,
+        Password: password,
+        Role: "customer",
+      });
+
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("role", response.data.role);
+      console.log("Signup successful:", response.data);
+      // Redirect or post-signup actions
+    } catch (err: any) {
+      setError(err.response?.data?.error || "Signup failed");
+      console.error("Signup error:", err.response?.data?.error || err.message);
+    }
   };
 
   return (
@@ -45,9 +57,7 @@ const Signup: React.FC = () => {
           <CardContent>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="email" className="form-label">
-                  Email
-                </label>
+                <label htmlFor="email" className="form-label">Email</label>
                 <Input
                   id="email"
                   type="email"
@@ -55,12 +65,12 @@ const Signup: React.FC = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="bala@gmail.com"
                   className="signup-input"
+                  required
                 />
               </div>
+
               <div className="form-group">
-                <label htmlFor="password" className="form-label">
-                  Password
-                </label>
+                <label htmlFor="password" className="form-label">Password</label>
                 <div className="password-input-container">
                   <Input
                     id="password"
@@ -69,19 +79,21 @@ const Signup: React.FC = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter your password"
                     className="signup-input"
+                    required
                   />
                   <button
                     type="button"
-                    onClick={togglePasswordVisibility}
+                    onClick={() => setShowPassword(!showPassword)}
                     className="password-toggle"
                   >
                     {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                   </button>
                 </div>
               </div>
-              <Button type="submit" className="signup-button">
-                Create account
-              </Button>
+
+              {error && <p className="error-message">{error}</p>}
+
+              <Button type="submit" className="signup-button">Create account</Button>
               <Button type="button" variant="outline" className="google-button">
                 <img src="/lovable-uploads/72f266f9-2c3d-49b9-8ad5-da737b20d9eb.png" alt="Google" className="google-icon" />
                 Continue with Google
