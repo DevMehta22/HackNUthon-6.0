@@ -16,7 +16,7 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
 
   // Regex patterns
-  const emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex = /^.{8,}$/; // At least 6 characters
 
   const handleSubmit = async (e: React.FormEvent) => {
