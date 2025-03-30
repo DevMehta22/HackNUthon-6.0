@@ -14,9 +14,26 @@ const Signup: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+
+    if (!email || !password) {
+      setError("Both fields are required.");
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long.");
+      return;
+    }
 
     try {
       const response = await axios.post("https://hack-n-uthon-6-0.vercel.app/api/user/signup", {
@@ -65,7 +82,6 @@ const Signup: React.FC = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="bala@gmail.com"
                   className="signup-input"
-                  required
                 />
               </div>
 
@@ -79,7 +95,6 @@ const Signup: React.FC = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter your password"
                     className="signup-input"
-                    required
                   />
                   <button
                     type="button"
@@ -94,10 +109,6 @@ const Signup: React.FC = () => {
               {error && <p className="error-message">{error}</p>}
 
               <Button type="submit" className="signup-button">Create account</Button>
-              <Button type="button" variant="outline" className="google-button">
-                <img src="/lovable-uploads/72f266f9-2c3d-49b9-8ad5-da737b20d9eb.png" alt="Google" className="google-icon" />
-                Continue with Google
-              </Button>
               <div className="login-prompt">
                 Already Have An Account? <Link to="/login" className="login-link">Log In</Link>
               </div>

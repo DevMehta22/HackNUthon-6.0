@@ -15,14 +15,32 @@ const Login: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
+  // Regex patterns
+  const emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
+  const passwordRegex = /^.{8,}$/; // At least 6 characters
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
 
+    // Client-side validation
+    if (!email.trim() || !password.trim()) {
+      setError("Email and password cannot be empty.");
+      return;
+    }
+    if (!emailRegex.test(email)) {
+      setError("Invalid email format.");
+      return;
+    }
+    if (!passwordRegex.test(password)) {
+      setError("Password must be at least 6 characters long.");
+      return;
+    }
+
     try {
       const response = await axios.post(
         "https://hack-n-uthon-6-0.vercel.app/api/user/login",
-        { Email: email, Password: password },
+        { Email: email, Password: password }
       );
 
       localStorage.setItem("token", response.data.token);
@@ -56,7 +74,6 @@ const Login: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@example.com"
                 className="login-input"
-                required
               />
             </div>
             <div className="form-group">
@@ -72,7 +89,6 @@ const Login: React.FC = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
                   className="login-input"
-                  required
                 />
                 <button
                   type="button"
