@@ -11,14 +11,17 @@ const { collectMetrics, metricsEndpoint } = require('./Middleware/metrics');
 const app = express()
 
 // Enable CORS
-app.use(cors(
-    {
-        origin: '*',
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        allowedHeaders: '*',
-        
-    }
-))
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: '*',
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204
+}));
+
+// Add this before your routes
+app.options('*', cors());
 
 app.use(collectMetrics); 
 app.use(express.json())
@@ -28,7 +31,9 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use(helmet())
+app.use(helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
 app.use(morgan('dev'))
 
 app.get('/metrics', metricsEndpoint);
