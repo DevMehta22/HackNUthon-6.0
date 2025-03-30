@@ -11,12 +11,14 @@ const { collectMetrics, metricsEndpoint } = require('./Middleware/metrics');
 const app = express()
 
 // Enable CORS
-app.use(cors({
-    origin: ["https://hack-n-uthon-6-0-pu3p.vercel.app/","http://localhost:8080/"], // Allow frontend origin
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true // Allow cookies & authorization headers
-}));
+app.use(cors(
+    {
+        origin: '*',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
+        
+    }
+))
 
 app.use(collectMetrics); 
 app.use(express.json())
