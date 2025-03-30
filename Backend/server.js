@@ -14,6 +14,7 @@ const app = express()
 app.use(cors({
     origin: "https://hack-n-uthon-6-0-pu3p.vercel.app/", // Allow frontend origin
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true // Allow cookies & authorization headers
 }));
 
